@@ -18,7 +18,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
 
 /**
- * Drop-in replacement for `androidx.compose.material3.Text` that routes the text through [Cn.t]
+ * Drop-in replacement for `androidx.compose.material3.Text` that routes the text through [I18n.t]
  * before drawing it, so every Compose string in the app follows the in-app language switch.
  *
  * Screens opt in by importing this `Text` instead of the material3 one; the parameter lists below
@@ -46,7 +46,7 @@ fun Text(
     style: TextStyle = LocalTextStyle.current,
 ) {
     MaterialText(
-        text = Cn.t(text),
+        text = I18n.t(text),
         modifier = modifier,
         color = color,
         fontSize = fontSize,

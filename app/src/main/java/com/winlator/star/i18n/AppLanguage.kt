@@ -23,6 +23,17 @@ object AppLanguage {
     const val ENGLISH = "en"
     const val CHINESE = "zh-CN"
 
+    /** A language offered in Settings › Appearance; labels are shown in their own language. */
+    data class LanguageOption(val tag: String, val label: String)
+
+    /** The languages listed in Settings › Appearance, in display order.
+     *  Adding a language = one entry here + its table in [I18n] + its `values-<tag>` resources. */
+    val options: List<LanguageOption> = listOf(
+        LanguageOption(SYSTEM, "System default"),
+        LanguageOption(ENGLISH, "English"),
+        LanguageOption(CHINESE, "简体中文"),
+    )
+
     private const val TAG = "AppLanguage"
     private const val PREFS = "winlator_language"
     private const val KEY_LANGUAGE = "app_language"
@@ -44,6 +55,7 @@ object AppLanguage {
         prefs = p
         selected = normalize(p.getString(KEY_LANGUAGE, SYSTEM) ?: SYSTEM)
         isChinese = selected == CHINESE
+        I18n.setLanguage(selected)
     }
 
     fun get(context: Context): String {
@@ -59,6 +71,7 @@ object AppLanguage {
         prefs?.edit()?.putString(KEY_LANGUAGE, v)?.apply()
         selected = v
         isChinese = v == CHINESE
+        I18n.setLanguage(v)
         if (changed) applyLocales()
     }
 

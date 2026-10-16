@@ -90,11 +90,7 @@ fun AppearanceScreen() {
         )
         Spacer(Modifier.height(6.dp))
         var language by remember { mutableStateOf(AppLanguage.get(context)) }
-        val languageOptions = listOf(
-            AppLanguage.SYSTEM to "System default",
-            AppLanguage.ENGLISH to "English",
-            AppLanguage.CHINESE to "简体中文",
-        )
+        val languageOptions = AppLanguage.options.map { it.tag to it.label }
         SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
             languageOptions.forEachIndexed { index, (tag, label) ->
                 SegmentedButton(
