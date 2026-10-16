@@ -4785,4 +4785,162 @@ internal val CN_TABLE: Map<String, String> = mapOf(
     "Unbound buttons go SILENT in-game (they no longer act as native Xbox)." to
         "未绑定的按键在游戏内将静默（不再充当原生 Xbox 按键）。",
     "Fill → native" to "填充 → 原生",
+
+    // ── Gap fix round 1: glossary bodies, save-manager texts, joined chains ─
+    "Translates a game's DirectX 9/10/11 graphics into Vulkan — the language your phone's GPU actually speaks. It's the default and usually the fastest option." to
+        "把游戏的 DirectX 9/10/11 图形转换为 Vulkan — 也就是你手机 GPU 真正理解的“语言”。它是默认项，通常也是最快的选择。",
+    "The Windows graphics API games are built on — D3D9/10/11 are older, D3D12 is the newest. The wrappers above translate it into Vulkan for your phone." to
+        "游戏所基于的 Windows 图形 API — D3D9/10/11 较老，D3D12 最新。上面的包装器把它转换为手机可用的 Vulkan。",
+    "A self-contained virtual Windows environment for a game — its own C: drive, settings and installed components. Think of it as one sandbox per game or per configuration." to
+        "为游戏准备的独立虚拟 Windows 环境 — 拥有自己的 C 盘、设置与已安装组件。可以理解为一游戏一沙盒（或一配置一沙盒）。",
+    "The Vulkan driver layer a container uses to talk to your GPU. Different wrappers suit different GPUs — this is where the Mali-vs-Adreno choice matters." to
+        "容器与 GPU 通信所用的 Vulkan 驱动层。不同包装器适合不同 GPU — Mali 与 Adreno 的选择在这里体现。",
+    "Translates a game's x86/x64 (Intel/AMD) instructions into ARM so they run on your phone's processor. Bannerlator's primary translator (arm64ec-focused)." to
+        "把游戏的 x86/x64（Intel/AMD）指令转换为 ARM，让它们能在手机处理器上运行。Bannerlator 的主力转换器（面向 arm64ec）。",
+    "Trades emulation accuracy for speed by tuning how faithfully FEXCore copies the PC's memory ordering (TSO). Stability/Compatibility stay fully accurate (safest); Performance relaxes it for more FPS (can break some games); the in-between and Denuvo presets are middle grounds. Start on the default." to
+        "通过调整 FEXCore 复刻 PC 内存顺序（TSO）的忠实程度，在准确性与速度间取舍。稳定性/兼容性保持完全准确（最安全）；性能模式放宽它以提升帧率（可能弄坏部分游戏）；中间档与 Denuvo 预设是折中。从默认值开始。",
+    "The two main phone-GPU families. Adreno (Snapdragon) has the best support here. Mali (many MediaTek/Exynos phones) works, but needs extra help with compressed textures — that's what the BCn / wrapper settings are for." to
+        "手机 GPU 的两大阵营。Adreno（骁龙）在此支持最好。Mali（许多联发科/Exynos 手机）可用，但需要额外处理压缩纹理 — 这正是 BCn / 包装器设置存在的意义。",
+    "PC games store textures in a compressed format (BCn / DXT / S3TC) that Adreno reads natively but Mali cannot. BCn emulation converts them on the fly so they display correctly. If it's off or incomplete on a Mali device, you get black textures in some areas." to
+        "PC 游戏的纹理使用压缩格式（BCn / DXT / S3TC），Adreno 可原生读取而 Mali 不能。BCn 模拟会实时转换它们以正常显示。Mali 设备上若关闭或不完整，部分区域会出现黑色纹理。",
+    "Compressed-texture formats that Mali GPUs CAN read natively. BCn emulation converts a game's textures into one of these so a Mali phone can display them." to
+        "Mali GPU 能够原生读取的压缩纹理格式。BCn 模拟会把游戏纹理转换为其中之一，让 Mali 手机得以显示。",
+    "A loader that lets Bannerlator use a custom GPU driver (like Turnip) instead of your phone's built-in one — usually for better speed and compatibility on Adreno." to
+        "让 Bannerlator 使用自定义 GPU 驱动（如 Turnip）替代手机内置驱动的加载器 — 通常在 Adreno 上获得更好的速度与兼容性。",
+    "The Vulkan level the driver reports to the DirectX translator (DXVK/VKD3D). A higher number can unlock features some games ask for, but it's automatically capped to what your driver really supports — so picking one above your driver does nothing." to
+        "驱动向 DirectX 转换器（DXVK/VKD3D）报告的 Vulkan 级别。更高数值可解锁部分游戏需要的特性，但会自动封顶到驱动实际支持的水平 — 选高于驱动的数值没有作用。",
+    "Reports a different graphics card to games than your real one. Some games unlock better graphics options, or simply run, when they recognise a specific GPU. Leave it on 'Device' to report your real GPU." to
+        "向游戏报告与真实显卡不同的型号。识别到特定 GPU 时，一些游戏会解锁更好的图形选项，或干脆才能运行。保持“设备”则上报真实 GPU。",
+    "Limits how much video memory the driver tells games it has. Useful when a game tries to use more than your phone can spare — a fix for out-of-memory crashes or stutter. Leave on Default unless a game misbehaves." to
+        "限制驱动告诉游戏的显存大小。当游戏试图使用超出手机承受的内存时有用 — 可修复内存不足崩溃或卡顿。除非游戏异常，保持默认。",
+    "How the GPU draws each frame. GMEM (tiled) rendering splits the screen into small tiles and draws them in ultra-fast on-chip memory — the efficient, mobile-native way. Auto turns it on only for Adreno 710/720/722 (which need it to avoid glitches); Force On applies it to any GPU; Force Off never does. Its opposite is 'sysmem'." to
+        "GPU 如何绘制每一帧。GMEM（分块）渲染把屏幕切成小块并在超高速片上内存中绘制 — 高效、移动原生的方式。自动仅在 Adreno 710/720/722 上开启（它们需要它来避免画面异常）；强制开启对任何 GPU 生效；强制关闭从不启用。其对立面是“sysmem”。",
+    "Forces the GPU to draw straight to main memory instead of the fast on-chip tile memory — the opposite of GMEM. The most compatible option (and the default), but uses more memory bandwidth. Use it if forcing GMEM makes a game glitch." to
+        "强制 GPU 直接绘制到主内存，而非高速片上分块内存 — 与 GMEM 相反。兼容性最好的选项（也是默认值），但更耗内存带宽。如果强制 GMEM 导致游戏画面异常，就用它。",
+    "Makes the GPU fully finish and show each frame before starting the next. Turn it on to fix tearing, flicker, or glitchy on-screen frames; leave it off for best performance, since it can cost some FPS by stopping the CPU and GPU from working ahead of each other." to
+        "让 GPU 完整完成并显示每一帧后再开始下一帧。开启可修复撕裂、闪烁或画面异常；追求最佳性能则关闭，因为它会阻止 CPU 与 GPU 提前工作而损失一些帧率。",
+    "Binning is the step where the GPU sorts what belongs in each on-screen tile. 'forcecb' forces it to run alongside rendering (can help performance); 'nocb' turns it off (can fix glitches on some games). Expert Turnip options — only touch them if a specific game needs it." to
+        "分块是 GPU 整理每个屏幕块内容的步骤。“forcecb”强制它与渲染并行运行（可能提升性能）；“nocb”将其关闭（可修复部分游戏的异常）。Turnip 专家选项 — 仅在特定游戏需要时调整。",
+    "Makes the GPU report itself to the game as a Steam Deck, which can unlock better graphics settings or code paths in some games. Only works on Bannerlator's own (Banners-Turnip) drivers — ignored on stock Turnip." to
+        "让 GPU 向游戏宣称自己是 Steam Deck，可能解锁部分游戏更好的图形设置或代码路径。仅对 Bannerlator 自带（Banners-Turnip）驱动生效 — 原版 Turnip 会忽略。",
+    "A Vulkan feature that lets a game wait until a frame has actually appeared on screen. Some GPU drivers implement it incorrectly, causing stalls or hangs — 'Disable KHR_present_wait' is the compatibility fallback that stops the driver using it." to
+        "让游戏等待某帧真正上屏的 Vulkan 特性。有些 GPU 驱动实现有误，导致停顿或卡死 — “禁用 KHR_present_wait”是阻止驱动使用它的兼容兜底。",
+    "On Mali and other non-Adreno GPUs, a game's compressed BCn/DXT textures have to be emulated. The BCn 'Type' picks the decoder (a GPU compute layer or a software one), the cache reuses decoded textures to cut stutter, and 'Transcode to ASTC' repacks them into ASTC — a format mobile GPUs read in hardware — to save memory. All of this has no effect on Adreno, which reads BCn natively." to
+        "在 Mali 及其他非 Adreno GPU 上，游戏的压缩 BCn/DXT 纹理必须模拟。BCn“类型”选择解码器（GPU 计算层或软件解码），缓存复用已解码纹理以减少卡顿，“转码为 ASTC”把它们重新打包为 ASTC — 移动 GPU 硬件可读的格式 — 以节省内存。这些对原生读取 BCn 的 Adreno 全都无效。",
+    "The order of the red and blue colour channels. BGRA (the default) is correct for almost everything — only switch to RGBA if a game's colours look swapped (blue where red should be)." to
+        "红蓝通道的顺序。BGRA（默认）对几乎一切都正确 — 仅当游戏颜色错位（该红的地方发蓝）时切换为 RGBA。",
+    "Inserts extra in-between frames to make motion look smoother. Interpolation always adds about one frame of input delay, and can produce occasional artifacts, so it's optional. Two engines, both running inside Bannerlator itself so the extra frames reach the screen directly: Win-FG Native (built in, needs nothing) and LSFG Native (runs the Lossless Scaling shaders, and needs your own imported Lossless.dll). Needs the Vulkan renderer." to
+        "插入额外的中间帧让运动更平滑。插帧总会增加约一帧输入延迟，且偶尔产生伪影，因此是可选功能。两个引擎都运行在 Bannerlator 内部，额外帧直接上屏：Win-FG Native（内置，无需任何东西）和 LSFG Native（运行无损缩放着色器，需要你自己导入 Lossless.dll）。需要 Vulkan 渲染器。",
+    "Caps how many frames the game renders per second. A cap cuts heat and battery use and can smooth out an unstable frame rate. Turning it on just loads the limiter — you set the actual cap live from the in-game FPS menu." to
+        "限制游戏每秒渲染的帧数。限帧可降低发热与耗电，并让不稳定的帧率更平滑。开启只是加载限制器 — 具体上限在游戏内 FPS 菜单实时设置。",
+    "Sends the game's image straight to the screen instead of through Bannerlator's compositor — lower latency and a little faster, but it disables colour swapping (RGBA) and the present-mode control. Turn it off if a game shows wrong colours or won't display." to
+        "把游戏画面直接送到屏幕而不经过 Bannerlator 合成器 — 延迟更低、稍快一些，但会禁用颜色互换（RGBA）与呈现模式控制。游戏颜色异常或无法显示时请关闭。",
+    "With frame generation on, two apps' FPS readings won't match — they count at different points. A counter that reads the game's raw output shows a clean 2x/3x/4x (impressive, but it counts frames your screen never actually displays). Bannerlator's HUD counts frames as they reach the display pipeline, so it shows the real gain — not a perfectly clean multiple, and always capped by your screen's refresh rate. Neither number is 'frames on glass'; your panel's refresh rate is the true ceiling." to
+        "帧生成开启时，两个应用的 FPS 读数不会一致 — 它们统计的位置不同。读取游戏原始输出的计数器会显示干净的 2x/3x/4x（好看，但它统计了屏幕实际从未显示的帧）。Bannerlator 的 HUD 按帧到达显示管线的时刻计数，因此显示的是真实增益 — 不是完美的整数倍，且始终受屏幕刷新率限制。两个数字都不是“玻璃上的帧数”；面板刷新率才是真正的上限。",
+    "An on-screen readout (FPS, frame times, GPU load, driver info) for diagnosing performance. Purely informational — it doesn't change the game." to
+        "屏幕上的读数（FPS、帧时间、GPU 负载、驱动信息），用于诊断性能。纯信息展示 — 不会改变游戏。",
+    "How finished frames are handed to your screen — a trade-off between smoothness, input lag and battery. FIFO is the safe default; Mailbox is best with frame generation; Immediate chases the lowest lag but can tear." to
+        "完成的帧如何交给屏幕 — 在平滑度、输入延迟与耗电之间取舍。FIFO 是安全的默认项；帧生成场景 Mailbox 最佳；Immediate 追求最低延迟但可能撕裂。",
+    "The default 'vsync on': every frame waits its turn and is shown on the next screen refresh. Smooth, tear-free and the most battery-friendly — but it makes the game wait for the display, which can hold frame generation back." to
+        "默认的“垂直同步开”：每帧依次等待，在下一次屏幕刷新时显示。平滑、无撕裂、最省电 — 但会让游戏等待显示，可能限制帧生成。",
+    "'Fast vsync': the screen always takes the newest finished frame and never makes the game wait. Tear-free like FIFO but with lower lag — and the right choice for frame generation, because its extra generated frames actually get through. Uses a little more battery." to
+        "“快速垂直同步”：屏幕总是取最新的完成帧，从不让游戏等待。像 FIFO 一样无撕裂但延迟更低 — 也是帧生成的正确选择，额外的生成帧能真正送达。耗电略多。",
+    "'Vsync off': frames go to the screen the instant they're ready. Lowest input lag, but you can see tearing (parts of two frames at once). Usually not worth it on a high-refresh phone screen." to
+        "“垂直同步关”：帧一就绪立即上屏。输入延迟最低，但会看到撕裂（两帧的部分画面同屏）。在高刷手机屏上通常不值得。",
+    "An experimental renderer that hands frames straight to Android's display system. Sometimes faster, but it can misbehave (or even reboot) some devices — Vulkan is the safe default." to
+        "实验性渲染器，把帧直接交给 Android 显示系统。有时更快，但可能让部分设备异常（甚至重启）— Vulkan 才是安全的默认项。",
+    "Sends an OpenGL game's frames straight to the screen through Vulkan, the route DXVK games take, instead of copying every frame back first. Several times faster on X11, and it speeds up DirectDraw and older Direct3D games through WineD3D too. Always on with Wayland; on X11 it needs a Turnip driver and works with any Wine layer (Wine 11 arm64ec layers go through EGL, everything else, including x86-64 layers, through GLX). On by default — turn it off for a game that misbehaves. It doesn't change game speed: very old games tied to frame rate should use the FPS limiter." to
+        "让 OpenGL 游戏的帧通过 Vulkan 直接上屏（DXVK 游戏走的路线），而不是先把每帧拷回来。在 X11 上快好几倍，也能加快 WineD3D 下的 DirectDraw 和较老 Direct3D 游戏。Wayland 下始终开启；X11 上需要 Turnip 驱动，适用于任何 Wine 层（Wine 11 arm64ec 层走 EGL，其余包括 x86-64 层走 GLX）。默认开启 — 游戏异常时关闭。它不改变游戏速度：速度与帧率绑定的老游戏请用 FPS 限制器。",
+    "Mesa's frames-per-second counter in the top-left corner of OpenGL games (GALLIUM_HUD=fps). Works on X11 and Wayland; DXVK games don't show it. Off by default." to
+        "Mesa 的帧率计数器，显示在 OpenGL 游戏左上角（GALLIUM_HUD=fps）。X11 和 Wayland 都可用；DXVK 游戏不显示。默认关闭。",
+    "Lets OpenGL games run above the screen's refresh rate instead of waiting for each refresh (vblank_mode=0). Can tear; very old games that tie speed to frame rate may run too fast, so use the FPS limiter with them. Off by default." to
+        "让 OpenGL 游戏跑在屏幕刷新率之上，而非等待每次刷新（vblank_mode=0）。可能撕裂；速度与帧率绑定的老游戏可能跑得过快，请搭配 FPS 限制器。默认关闭。",
+    "The first time you play, the game compiles its shaders, which can cause brief stutters. DXVK's shader (state) cache saves them so later sessions run smoothly." to
+        "首次游玩时游戏会编译着色器，可能造成短暂卡顿。DXVK 的着色器（状态）缓存会保存它们，让之后的会话更流畅。",
+    "Two different C libraries. Android uses 'bionic'; desktop Linux uses 'glibc'. Bannerlator's Wine and drivers are built for bionic — a glibc build simply won't load, no matter how good it looks." to
+        "两种不同的 C 库。Android 使用 bionic；桌面 Linux 使用 glibc。Bannerlator 的 Wine 与驱动为 bionic 构建 — glibc 构建根本无法加载，外观再好也没用。",
+    "Advanced per-container switches (like DXVK_FRAME_RATE=60 or BCN_TRANSCODE_TO_ASTC=1). Most people never need them, but they let power users fine-tune a game." to
+        "按容器的高级开关（如 DXVK_FRAME_RATE=60 或 BCN_TRANSCODE_TO_ASTC=1）。大多数人不需要，但可供高级用户微调游戏。",
+    "How a game's threads wait for each other ('wait until this is loaded', 'signal when the frame is ready'). Wine has several ways to handle that; the faster ones mean less stutter and CPU overhead. Pick one on the container's General tab (under the compatibility layer) or per game — a game follows its container unless you choose otherwise. Options the layer can't do are greyed out." to
+        "游戏的线程如何互相等待（“等加载完”、“帧就绪时发信号”）。Wine 有多种处理方式；较快的方式意味着更少卡顿和 CPU 开销。在容器的通用标签页（兼容层下）或按游戏选择 — 游戏跟随容器，除非你另行选择。层不支持的方式会置灰。",
+    "The default Sync mode. Wine handles most waits with Linux event files instead of asking its background server each time. Fast and well tested (WINEESYNC=1)." to
+        "默认同步模式。Wine 用 Linux 事件文件处理大多数等待，而不是每次都询问后台服务。快速且经过充分测试（WINEESYNC=1）。",
+    "The Sync mode that copies how Windows itself does it — the most accurate, and fast. Uses GameNative's userspace ntsync, so no kernel support is needed. New: only on the v9 Proton 11 layers; if it can't start, the game falls back to esync automatically (WINENTSYNC=1)." to
+        "复刻 Windows 自身做法的同步模式 — 最准确且快速。使用 GameNative 的用户态 ntsync，无需内核支持。新功能：仅 v9 Proton 11 层；无法启动时自动回退 esync（WINENTSYNC=1）。",
+    "A faster Sync mode used on Linux PCs such as the Steam Deck. It relies on a Linux feature Android blocks for apps, so it is always greyed out here and WINEFSYNC does nothing." to
+        "Linux PC（如 Steam Deck）上使用的更快同步模式。它依赖 Android 对应用封锁的 Linux 特性，因此在此始终置灰，WINEFSYNC 不起作用。",
+    "The Sync mode with no shortcut: every wait goes through Wine's background server. Slowest and heaviest on the CPU, but the most compatible — use it when a game hangs, stutters or misbehaves on the others (WINEESYNC=0)." to
+        "没有捷径的同步模式：每次等待都经过 Wine 的后台服务。最慢、CPU 负担最重，但兼容性最好 — 游戏在其他模式卡死、卡顿或异常时用它（WINEESYNC=0）。",
+    "Tell Wine whether to use a game's own copy of a system file (native) or Wine's built-in version. A common fix for games that ship their own DLLs." to
+        "告诉 Wine 使用游戏自带的系统文件副本（原生）还是 Wine 内置版本。对自带 DLL 的游戏是常见修复。",
+    "Extra Windows runtimes some games need (Visual C++ redistributables, .NET, DirectX, etc.). Install them from a container's Components list if a game complains one is missing." to
+        "部分游戏需要的额外 Windows 运行库（Visual C++ 运行库、.NET、DirectX 等）。游戏提示缺失时，从容器的组件列表安装。",
+    "The two ways Windows games read controllers. XInput is the modern Xbox-style standard; DInput is the older one. Match whichever a game expects." to
+        "Windows 游戏读取手柄的两种方式。XInput 是现代 Xbox 式标准；DInput 较老。按游戏期望的选择。",
+    "Uses the phone's motion sensor to aim by tilting. Mode sets whether tilt SPEED or tilt ANGLE aims; the activator is the button that switches it on; the target is what it moves (right stick, left stick or mouse); sensitivity sets how far a tilt turns." to
+        "用手机运动传感器通过倾斜瞄准。模式决定按倾斜“速度”还是“角度”瞄准；激活键是开启它的按钮；目标决定移动什么（右摇杆、左摇杆或鼠标）；灵敏度决定倾斜转动多远。",
+    "How a game's sound reaches Android. ALSA is the simple, low-overhead default; PulseAudio is a fuller sound server some games or voice features need. Switch to PulseAudio if a game has no sound or crackles." to
+        "游戏声音如何到达 Android。ALSA 是简单、低开销的默认；PulseAudio 是更完整的声音服务器，部分游戏或语音功能需要。游戏无声或爆音时切到 PulseAudio。",
+
+    // ── Gap fix round 1: save manager, settings, container chains ───────────
+    "Steam Cloud save syncing here is handled by a third-party tool, not official Steam. Managing game saves this way can corrupt or lose your saves. Use at your own risk." to
+        "此处的 Steam 云存档同步由第三方工具处理，而非官方 Steam。以这种方式管理游戏存档可能损坏或丢失存档。使用风险自负。",
+    "Turning this ON writes achievements you unlock in-game back to your REAL Steam account and profile. This is a third-party sync — it can't be undone on Steam and may not match what official Steam would record. Leave it off to keep unlocks local to this device. Turn on anyway?" to
+        "开启后会把游戏内解锁的成就写回你的真实 Steam 账号与资料。这是第三方同步 — 在 Steam 上无法撤销，且可能与官方记录不一致。保持关闭可将解锁保留在本设备。仍要开启？",
+    "In-game achievement unlocks will stay local to this device and won't be written to your Steam profile." to
+        "游戏内解锁的成就将保留在本设备，不会写入你的 Steam 资料。",
+    "Automatic save backup on exit will be OFF for your Steam library games. Their saves won't be captured when a game closes — you'll need to back them up yourself via a container's backup option or the Save Manager. Continue?" to
+        "Steam 库游戏的退出自动备份将关闭。游戏关闭时不会捕获其存档 — 你需要通过容器的备份选项或存档管理自行备份。继续？",
+    "Automatic cloud upload on exit will be OFF for your Steam library games. Their saves won't be pushed to Steam Cloud when a game closes — you'll need to upload them yourself from the game's detail page Cloud Saves section. Continue?" to
+        "Steam 库游戏的退出自动上传将关闭。游戏关闭时存档不会推送至 Steam 云 — 你需要从游戏详情页的云存档区域自行上传。继续？",
+    "Automatic cloud download on launch will be OFF for your Steam library games. The latest cloud saves won't be pulled in before a game starts — you'll need to download them yourself from the game's detail page Cloud Saves section. Continue?" to
+        "Steam 库游戏的启动自动下载将关闭。游戏启动前不会拉取最新云存档 — 你需要从游戏详情页的云存档区域自行下载。继续？",
+    "Automatic cloud upload on exit will be OFF for your GOG library games. Their saves won't be pushed to GOG cloud when a game closes — you'll need to upload them yourself from the GOG Save Manager tab or the game's detail page. Continue?" to
+        "GOG 库游戏的退出自动上传将关闭。游戏关闭时存档不会推送至 GOG 云 — 你需要从 GOG 存档管理的对应标签页或游戏详情页自行上传。继续？",
+    "Automatic cloud download on launch will be OFF for your GOG library games. The latest cloud saves won't be pulled in before a game starts — you'll need to download them yourself from the GOG Save Manager tab or the game's detail page. Continue?" to
+        "GOG 库游戏的启动自动下载将关闭。游戏启动前不会拉取最新云存档 — 你需要从 GOG 存档管理标签页或游戏详情页自行下载。继续？",
+    "Automatic save backup on exit will be OFF for your custom-imported games. Their saves won't be captured when a game closes — you'll need to back them up yourself via a container's backup option or the game's ⋮ menu → 'Back up saves'. Continue?" to
+        "自定义导入游戏的退出自动备份将关闭。游戏关闭时不会捕获其存档 — 你需要通过容器的备份选项或游戏 ⋮ 菜单 →“备份存档”自行备份。继续？",
+    "Push Steam-library saves to Steam Cloud when a game exits (only after you accept the third-party cloud disclaimer; never deletes anything from the cloud)." to
+        "游戏退出时将 Steam 库存档推送至 Steam 云（需先接受第三方云免责声明；绝不删除云上内容）。",
+    "Pull the latest Steam Cloud saves into the game before it starts (newest-wins — never overwrites a newer local save)." to
+        "游戏启动前拉取最新的 Steam 云存档（以最新为准 — 绝不覆盖更新的本地存档）。",
+    "Push GOG-library saves to GOG cloud when a game exits (newest-wins — never overwrites a newer cloud save)." to
+        "游戏退出时将 GOG 库存档推送至 GOG 云（以最新为准 — 绝不覆盖更新的云端存档）。",
+    "Pull the latest GOG cloud saves into the game before it starts (newest-wins — never overwrites a newer local save)." to
+        "游戏启动前拉取最新的 GOG 云存档（以最新为准 — 绝不覆盖更新的本地存档）。",
+    "When ON, achievements you unlock in-game are written back to your REAL Steam account. Off by default — unlocks otherwise stay local to this device." to
+        "开启时，游戏内解锁的成就会写回你的真实 Steam 账号。默认关闭 — 否则解锁仅保留在本设备。",
+    "Automatic save backup on exit is ON for your Steam library games." to "Steam 库游戏的退出自动备份已开启。",
+    "Automatic cloud upload on exit is ON for your Steam library games." to "Steam 库游戏的退出自动上传已开启。",
+    "Automatic cloud download on launch is ON for your Steam library games." to "Steam 库游戏的启动自动下载已开启。",
+    "Automatic cloud upload on exit is ON for your GOG library games." to "GOG 库游戏的退出自动上传已开启。",
+    "Automatic cloud download on launch is ON for your GOG library games." to "GOG 库游戏的启动自动下载已开启。",
+    "Automatic save backup on exit is ON for your custom-imported games." to "自定义导入游戏的退出自动备份已开启。",
+    "No per-game saves detected — backed up the whole container." to "未检测到每游戏存档 — 已备份整个容器。",
+    "Nothing to sync yet.\nDownload a game's cloud save from its detail page to start." to
+        "暂无可同步内容。\n先从游戏详情页下载一次云存档即可开始。",
+    "No custom games found.\nImport a game (exe/folder), then back its saves up here." to
+        "未找到自定义游戏。\n先导入游戏（exe/文件夹），再在这里备份它的存档。",
+    "No installed Epic games found.\nInstall a game from the Epic store, then sync its cloud saves here." to
+        "未找到已安装的 Epic 游戏。\n先从 Epic 商店安装游戏，再到此同步其云存档。",
+    "No installed GOG games found.\nInstall a game from the GOG store, then sync its cloud saves here." to
+        "未找到已安装的 GOG 游戏。\n先从 GOG 商店安装游戏，再到此同步其云存档。",
+    "Test regions / Test network" to "测试区域 / 测试网络",
+    "Test regions pings every Steam datacenter now and shows each one's response time in the list above; Auto also remembers the fastest as its pick.\n\nTest network checks how this network handles online game traffic (the same check the SteamLite launch shows). Steam sign-in and downloads work on any NAT; games with their own servers (e.g. Brawlhalla) can fail behind a strict/symmetric NAT such as phone hotspots or many VPNs. Fix: home Wi-Fi, a hotspot with port mapping, or a VPN with port forwarding." to
+        "测试区域会立即为每个 Steam 数据中心测延迟，并在上方列表显示各自响应时间；自动模式还会记住最快的一个作为选择。\n\n测试网络检查此网络如何处理联机游戏流量（与 SteamLite 启动时相同检查）。Steam 登录和下载在任何 NAT 下都可用；自带服务器的游戏（如 Brawlhalla）在手机热点或许多 VPN 之类的严格/对称 NAT 后可能连不上。解决办法：家用 Wi-Fi、带端口映射的热点，或带端口转发的 VPN。",
+    "Custom starts with every service off — turn on only what you need. Disabling Wine Bus/HID can break controllers." to
+        "自定义模式从所有服务关闭开始 — 只开启你需要的。禁用 Wine Bus/HID 可能导致手柄异常。",
+    "Expert-only Turnip debug tokens. Off by default — enable only if you know what they do. These are unioned with the GMEM setting above into TU_DEBUG." to
+        "仅专家使用的 Turnip 调试令牌。默认关闭 — 仅在了解作用时启用。它们会与上方的 GMEM 设置合并进 TU_DEBUG。",
+    "Auto forces GMEM tiled rendering (TU_DEBUG=gmem) only on Adreno 710/720/722; Force On applies it on any GPU; Force Off never applies it. Leave on Auto unless a game misbehaves." to
+        "自动仅在 Adreno 710/720/722 上强制 GMEM 分块渲染（TU_DEBUG=gmem）；强制开启适用于任何 GPU；强制关闭从不启用。除非游戏异常，保持自动。",
+    "Used by the Wayland compositor to put frames on screen; the game renders on the Wayland game driver under Advanced." to
+        "由 Wayland 合成器用于把画面呈上屏幕；游戏在高级设置中的 Wayland 游戏驱动上渲染。",
+    "For games that refuse to start or misbehave on an Adreno GPU. GPU name makes DirectX games (DXVK, and D3D12 through it) see another graphics card; native Vulkan and OpenGL games still see the real one for now. Off by default (Device). Warning: an NVIDIA name can make a game try NVAPI, DLSS or Reflex, and an AMD name can send it down AMD AGS paths; go back to Device if a game misbehaves. These are the X11 driver configuration's settings, so they follow the game across backends." to
+        "用于在 Adreno GPU 上拒绝启动或异常的游戏。GPU 名称让 DirectX 游戏（DXVK 及其上的 D3D12）看到另一块显卡；原生 Vulkan 与 OpenGL 游戏目前仍看到真实显卡。默认关闭（设备）。警告：NVIDIA 名称可能让游戏尝试 NVAPI、DLSS 或 Reflex，AMD 名称可能让它走 AMD AGS 路径；游戏异常时请换回“设备”。这些属于 X11 驱动配置的设置，因此会跨后端跟随游戏。",
+    "Gives the game's Turnip FD_DEV_FEATURES=enable_tp_ubwc_flag_hint=1, for Samsung and Xiaomi phones whose games show corrupt textures; leave off otherwise." to
+        "为游戏设置 Turnip FD_DEV_FEATURES=enable_tp_ubwc_flag_hint=1，用于游戏纹理损坏的三星和小米手机；其他情况保持关闭。",
+    "New to configs? Grab a Stock config via ⬇, then pick it below. Want it your way? Edit anything in a stock config — changes auto-save as your own copy, the original stays untouched. Prefer managing files yourself? \"Custom config file\" points at any .conf (the built-in way of doing DXVK_CONFIG_FILE). Heads-up: builds SILENTLY IGNORE keys they don't recognise — if an added key does nothing, it's either not supported by that build or has a typo." to
+        "初次接触配置？用 ⬇ 下载一份官方配置，然后在下方选择它。想按自己的来？直接编辑官方配置中的任意内容 — 修改会自动保存为你自己的副本，原版不受影响。更喜欢自己管理文件？“自定义配置文件”可指向任意 .conf（DXVK_CONFIG_FILE 的内置方式）。注意：构建会静默忽略不认识的键 — 如果添加的键没起作用，要么该构建不支持，要么存在拼写错误。",
 )
