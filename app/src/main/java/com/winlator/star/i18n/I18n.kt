@@ -1,5 +1,8 @@
 package com.winlator.star.i18n
 
+import android.content.res.Resources
+import java.util.Locale
+
 /**
  * Runtime translator for the Compose UI.
  *
@@ -27,7 +30,27 @@ object I18n {
 
     /** Selects the active table for [tag]; called by [AppLanguage] on init and on every change. */
     fun setLanguage(tag: String) {
-        table = TABLES[tag] ?: emptyMap()
+        table = resolve(tag)
+    }
+
+    /**
+     * "System default" follows the DEVICE's own language: if it matches a table we ship, that
+     * table activates — otherwise English, exactly like a language we have no table for.
+     * Uses the process's effective locale, which reflects a system-level per-app language
+     * (Android 13+) when one is set, otherwise the device language. [AppLanguage.refresh]
+     * re-runs this when an activity is (re)created, so it stays correct after language changes.
+     */
+    private fun resolve(tag: String): Map<String, String> {
+        if (tag != AppLanguage.SYSTEM) return TABLES[tag] ?: emptyMap()
+        val lang = try {
+            Locale.getDefault().language
+        } catch (t: Throwable) {
+            Resources.getSystem().configuration.locales[0].language
+        }
+        if (lang.isNullOrEmpty()) return emptyMap()
+        return TABLES.entries
+            .firstOrNull { (key, _) -> key.equals(lang, true) || key.startsWith("$lang-", true) }
+            ?.value ?: emptyMap()
     }
 
     /** Returns the current language's rendering of [en], or [en] itself when untranslated. */

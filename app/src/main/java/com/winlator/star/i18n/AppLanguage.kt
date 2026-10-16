@@ -81,6 +81,14 @@ object AppLanguage {
         applyLocales()
     }
 
+    /** Re-resolves the active translation table for the CURRENT effective locale. Called when an
+     *  activity is (re)created, so "System default" follows the device (or a system-level per-app
+     *  language) even right after a language change recreated the UI. Cheap and idempotent. */
+    fun refresh(context: Context) {
+        init(context)
+        I18n.setLanguage(selected)
+    }
+
     private fun normalize(tag: String): String = when {
         tag.equals(CHINESE, true) || tag.equals("zh", true) || tag.startsWith("zh-", true) -> CHINESE
         tag.equals(ENGLISH, true) || tag.startsWith("en-", true) -> ENGLISH

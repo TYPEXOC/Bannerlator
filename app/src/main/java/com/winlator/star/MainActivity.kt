@@ -180,6 +180,10 @@ class MainActivity : AppCompatActivity() {
 
         PACKAGE_NAME = applicationContext.packageName
         AppThemeState.init(this)
+        // (Re)resolve the translation table for this activity's locale — "System default" follows
+        // the device, and this keeps the table in sync after AppCompat recreates activities on a
+        // language change.
+        com.winlator.star.i18n.AppLanguage.refresh(this)
         // Apply the user's App-orientation preference to THIS app-UI activity only (the game's
         // XServerDisplayActivity manages its own orientation and is unaffected).
         com.winlator.star.core.AppOrientation.apply(this)
