@@ -1836,4 +1836,180 @@ internal val CN_TABLE: Map<String, String> = mapOf(
     "The game's Documents, AppData and Saved Games folders are the ones its container uses. Don't run the same game in both at once." to
         "游戏的文档、AppData 和保存的游戏文件夹与其容器共用。不要同时在两处运行同一游戏。",
     "Media codecs" to "媒体编解码器",
+
+    // ── Deck graphics settings (GraphicsSettings.kt) ────────────────────────
+    "Graphics driver configuration" to "显卡驱动配置",
+    "Wrapper + compat + bcn" to "包装器 + 兼容 + bcn",
+    "Not set" to "未设置",
+    "No effect on Adreno, which decodes BCn itself." to "对 Adreno 无效果，其自带 BCn 解码。",
+    "Auto (match the scaling)" to "自动（匹配缩放）",
+    "Sharper (-0.25)" to "更锐利（-0.25）",
+    "Sharper (-0.5)" to "更锐利（-0.5）",
+    "Sharper (-0.75)" to "更锐利（-0.75）",
+    "Sharpest (-1.0)" to "最锐利（-1.0）",
+    "DXVK and VKD3D" to "DXVK 与 VKD3D",
+    "DXVK version" to "DXVK 版本",
+    "DirectX 8 to 11 through Vulkan. Builds named async or gplasync can compile shaders in the background." to
+        "通过 Vulkan 运行 DirectX 8 到 11。名为 async 或 gplasync 的构建可后台编译着色器。",
+    "DXVK 1.x can't run VKD3D: pick a 2.x build, or set VKD3D to None." to
+        "DXVK 1.x 无法搭配 VKD3D：请选择 2.x 构建，或将 VKD3D 设为无。",
+    "VEGAS version" to "VEGAS 版本",
+    "The installed VEGAS builds, and the one bundled with the app." to "已安装的 VEGAS 构建，以及应用附带的那一个。",
+    "No VEGAS build installed: download one below." to "未安装 VEGAS 构建：可在下方下载。",
+    "VKD3D version" to "VKD3D 版本",
+    "DirectX 12 through Vulkan. None turns DirectX 12 off." to "通过 Vulkan 运行 DirectX 12。选“无”则关闭 DirectX 12。",
+    "Async shaders" to "异步着色器",
+    "Compiles shaders in the background: less stutter, some objects may pop in." to
+        "后台编译着色器：减少卡顿，部分物体会延迟出现。",
+    "Async shader cache" to "异步着色器缓存",
+    "Keeps the compiled shaders for the next start (gplasync builds)." to
+        "为下次启动保留已编译的着色器（gplasync 构建）。",
+    "DXVK frame rate cap" to "DXVK 帧率上限",
+    "DXVK's own limit (DXVK_FRAME_RATE). Off leaves pacing to the frame rate limiter." to
+        "DXVK 自身的限制（DXVK_FRAME_RATE）。关闭则交由帧率限制器控制。",
+    "DirectX 12 feature level" to "DirectX 12 功能级别",
+    "The feature level VKD3D reports. Lower it only for a game that refuses to start." to
+        "VKD3D 报告的功能级别。仅对拒绝启动的游戏才下调。",
+    "Texture filtering" to "纹理过滤",
+    "Sharper textures at an angle. DirectX 9 to 11 games." to "斜视角下纹理更清晰。适用于 DirectX 9 到 11 游戏。",
+    "A negative mip bias: sharper textures, some shimmer. Auto follows the scaling the game starts with." to
+        "负的 mip 偏移：纹理更锐利，可能有些闪烁。自动跟随游戏启动时的缩放。",
+    "DirectDraw wrapper" to "DirectDraw 包装器",
+    "For DirectDraw and Direct3D 7 games. D7VK runs them on Vulkan." to
+        "用于 DirectDraw 和 Direct3D 7 游戏。D7VK 让它们在 Vulkan 上运行。",
+    "D7VK version" to "D7VK 版本",
+    "Bundled with the app" to "随应用附带",
+    "VEGAS config" to "VEGAS 配置",
+    "Config file" to "配置文件",
+    "Which VEGAS config the game reads. A stock config stays untouched: the first edit makes your own copy." to
+        "游戏读取哪个 VEGAS 配置。官方配置不会被改动：首次编辑会生成你自己的副本。",
+    "VEGAS built-in defaults (no file)" to "VEGAS 内置默认值（无文件）",
+    "Another file…" to "其他文件…",
+    "The full path of a .conf file, e.g. /storage/emulated/0/Download/dxvk.conf" to
+        ".conf 文件的完整路径，例如 /storage/emulated/0/Download/dxvk.conf",
+    "Type the full path, starting with /." to "输入以 / 开头的完整路径。",
+    "Command stream (CSMT)" to "命令流（CSMT）",
+    "Runs WineD3D's rendering on its own thread. Usually faster." to "WineD3D 的渲染在独立线程上运行。通常更快。",
+    "WineD3D renderer" to "WineD3D 渲染器",
+    "GDI (software)" to "GDI（软件）",
+    "GPU the game sees" to "游戏看到的 GPU",
+    "The graphics card WineD3D reports to the game." to "WineD3D 向游戏报告的显卡。",
+    "Video memory" to "显存",
+    "How much graphics memory WineD3D reports." to "WineD3D 报告的显存大小。",
+    "Strict shader math" to "严格着色器运算",
+    "Offscreen rendering" to "离屏渲染",
+    "Back buffer" to "后台缓冲",
+    "DX wrapper config" to "DX 包装器配置",
+    "Driver version" to "驱动版本",
+    "The Turnip or Adreno driver the wrapper loads. Import more in Contents › GPU drivers." to
+        "包装器加载的 Turnip 或 Adreno 驱动。可在 内容 › GPU 驱动 中导入更多。",
+    "Not set (System)" to "未设置（系统）",
+    "This driver didn't load on this GPU: the system driver answered the check instead." to
+        "此驱动未能在该 GPU 上加载：检查由系统驱动代为应答。",
+    "A Qualcomm (Adreno) driver: it loads when the game starts, so its extensions aren't listed here." to
+        "高通（Adreno）驱动：游戏启动时才加载，因此此处不列出其扩展。",
+    "Vulkan version" to "Vulkan 版本",
+    "The Vulkan version the driver reports to games." to "驱动向游戏报告的 Vulkan 版本。",
+    "Vulkan extensions" to "Vulkan 扩展",
+    "Hide extensions a game trips over. Changing the driver version shows them all again." to
+        "隐藏导致游戏出问题的扩展。更改驱动版本会重新显示全部。",
+    "Reading the driver's extensions…" to "正在读取驱动的扩展…",
+    "None listed" to "未列出",
+    "Pick a driver version first." to "请先选择驱动版本。",
+    "A Qualcomm driver's extensions are only known once the game starts." to
+        "高通驱动的扩展只有在游戏启动后才能得知。",
+    "GPU name games see" to "游戏看到的 GPU 名称",
+    "Makes DirectX games see another graphics card. Device keeps the real one." to
+        "让 DirectX 游戏看到另一块显卡。选“设备”则保持真实显卡。",
+    "Device (the real GPU)" to "设备（真实 GPU）",
+    "GPU memory games see" to "游戏看到的显存",
+    "What DirectX games are told the GPU's memory is (dxgi.maxDeviceMemory)." to
+        "告知 DirectX 游戏的显存大小（dxgi.maxDeviceMemory）。",
+    "Driver tuning" to "驱动调优",
+    "Driver present mode" to "驱动呈现模式",
+    "How the wrapper hands frames over. Not the screen renderer's setting." to
+        "包装器如何提交帧。与屏幕渲染器的设置无关。",
+    "Wayland offers mailbox and fifo only: immediate needs tearing, which the compositor doesn't allow." to
+        "Wayland 仅提供 mailbox 和 fifo：immediate 需要撕裂，合成器不允许。",
+    "Resource type" to "资源类型",
+    "Sync every frame" to "每帧同步",
+    "Waits for each frame to finish. Fixes flicker in a few games, costs speed." to
+        "等待每帧完成。可修复个别游戏的闪烁，但损失速度。",
+    "Disable present wait" to "禁用 present wait",
+    "OneUI / HyperOS fix" to "OneUI / HyperOS 修复",
+    "For Samsung and Xiaomi phones whose games show corrupt textures. Leave off otherwise." to
+        "用于游戏中出现纹理损坏的三星和小米手机。其他情况保持关闭。",
+    "BCn textures" to "BCn 纹理",
+    "BCn texture emulation" to "BCn 纹理模拟",
+    "Decodes the compressed textures Windows games use, for GPUs that can't." to
+        "为无法解码的 GPU 解码 Windows 游戏使用的压缩纹理。",
+    "Adreno decodes BCn itself: these apply to Mali and other GPUs." to
+        "Adreno 自带 BCn 解码：以下仅适用于 Mali 等 GPU。",
+    "BCn and compat layers apply to Mali and other non-Qualcomm GPUs." to
+        "BCn 与兼容层适用于 Mali 及其他非高通 GPU。",
+    "Emulation method" to "模拟方式",
+    "Cache decoded textures" to "缓存已解码纹理",
+    "BCn to ASTC" to "BCn 转 ASTC",
+    "Transcode BCn to ASTC" to "将 BCn 转码为 ASTC",
+    "With the compute method: the decoder writes ASTC instead." to "使用计算方式时：解码器改写入 ASTC。",
+    "BCn layer" to "BCn 层",
+    "Force decode on every GPU" to "在所有 GPU 上强制解码",
+    "Transcode BCn to ETC2" to "将 BCn 转码为 ETC2",
+    "Storage image path" to "存储图像路径",
+    "BCn layer debug log" to "BCn 层调试日志",
+    "Use the GameNative engine (DirectX 12)" to "使用 GameNative 引擎（DirectX 12）",
+    "Needs a Valhall Mali GPU." to "需要 Valhall 架构的 Mali GPU。",
+    "Emulate DirectX 12 sparse resources" to "模拟 DirectX 12 稀疏资源",
+    "GMEM tiled rendering" to "GMEM 分块渲染",
+    "Auto uses it on Adreno 710, 720 and 722 only. Change it only if a game misbehaves." to
+        "自动仅在 Adreno 710、720 和 722 上启用。仅在游戏异常时才更改。",
+    "Force on" to "强制开启",
+    "Force off" to "强制关闭",
+    "Force concurrent binning (forcecb)" to "强制并发分块（forcecb）",
+    "No concurrent binning (nocb)" to "禁用并发分块（nocb）",
+    "Force sysmem rendering (sysmem)" to "强制 sysmem 渲染（sysmem）",
+    "Bypasses GMEM." to "绕过 GMEM。",
+    "GMEM Force on overrides it." to "GMEM“强制开启”会覆盖此项。",
+    "Report a Steam Deck (deck_emu)" to "报告为 Steam Deck（deck_emu）",
+    "Banners-Turnip drivers only; stock Turnip ignores it." to "仅限 Banners-Turnip 驱动；原版 Turnip 会忽略。",
+    "Mali (PanVK) advanced" to "Mali（PanVK）高级",
+    "The Vulkan driver the game itself renders on with Wayland." to "Wayland 下游戏自身渲染所用的 Vulkan 驱动。",
+    "For Arm Mali GPUs. Until it is switched, it follows the driver: on for a PanVK driver, off otherwise." to
+        "用于 Arm Mali GPU。在开关前，它跟随驱动：PanVK 驱动开启，其他关闭。",
+    "Converting BCn textures to ASTC can freeze or reboot the phone with this driver; only try it if a game shows broken or missing textures." to
+        "使用此驱动时，把 BCn 纹理转 ASTC 可能导致手机卡死或重启；仅在游戏纹理损坏或缺失时尝试。",
+    "Hide present-wait / dynamic-rendering extensions" to "隐藏 present-wait / dynamic-rendering 扩展",
+    "Skip GPU submit waits" to "跳过 GPU 提交等待",
+    "For DXVK games: turn off if a DirectX 12 game misbehaves or you see tearing." to
+        "用于 DXVK 游戏：若 DirectX 12 游戏异常或出现撕裂，请关闭。",
+    "Skip frame-acquire signal" to "跳过帧获取信号",
+    "Needs Skip GPU submit waits on." to "需要开启“跳过 GPU 提交等待”。",
+    "Default: a quarter of RAM, 1024 to 3072 MB." to "默认：内存的四分之一，1024 到 3072 MB。",
+    "Default: 512 MB." to "默认：512 MB。",
+    "Default: 16 MB." to "默认：16 MB。",
+    "Only if auto-detection fails ([KFAULT] in the log)." to "仅在自动检测失败时（日志中出现 [KFAULT]）。",
+    "Auto (by GPU: …)" to "自动（按 GPU：…）",
+    "The game renders on the graphics driver above, through the Wayland adapter." to
+        "游戏通过 Wayland 适配器在上方显卡驱动上渲染。",
+    "Download DXVK versions" to "下载 DXVK 版本",
+    "Builds from the catalog. Installed ones appear under DXVK version." to
+        "来自目录的构建。已安装的会出现在 DXVK 版本下。",
+    "Download VEGAS builds" to "下载 VEGAS 构建",
+    "Releases of the VEGAS DXVK fork." to "VEGAS DXVK 分支的发布版。",
+    "Download VKD3D versions" to "下载 VKD3D 版本",
+    "DirectX 12 builds from the catalog." to "目录中的 DirectX 12 构建。",
+    "Download D7VK versions" to "下载 D7VK 版本",
+    "DirectDraw and Direct3D 7 on Vulkan." to "在 Vulkan 上运行 DirectDraw 和 Direct3D 7。",
+    "Download stock VEGAS configs" to "下载官方 VEGAS 配置",
+    "The config files VEGAS releases ship. They appear under Config file." to
+        "VEGAS 发布版附带的配置文件。会出现在配置文件下。",
+    "Edit the VEGAS config file" to "编辑 VEGAS 配置文件",
+    "Performance tier, each key of the file, backups, and deleting or installing VEGAS builds." to
+        "性能层级、文件的每个键、备份，以及删除或安装 VEGAS 构建。",
+    "Manage graphics wrappers" to "管理图形包装器",
+    "Download, import or delete the wrappers listed under Graphics driver." to
+        "下载、导入或删除显卡驱动下列出的包装器。",
+    "Wayland needs an installed Turnip to put the game's frames on screen. New ones appear under Graphics driver." to
+        "Wayland 需要已安装的 Turnip 才能把游戏画面呈上屏幕。新的会出现在显卡驱动下。",
+    "Downloads and tools" to "下载与工具",
 )
