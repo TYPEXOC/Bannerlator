@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.InlineTextContent
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -20,8 +21,9 @@ import androidx.compose.ui.unit.TextUnit
  * Drop-in replacement for `androidx.compose.material3.Text` that routes the text through [Cn.t]
  * before drawing it, so every Compose string in the app follows the in-app language switch.
  *
- * Screens opt in by importing this `Text` instead of the material3 one; the parameter list below
- * mirrors material3 1.2.0 exactly so call sites compile unchanged.
+ * Screens opt in by importing this `Text` instead of the material3 one; the parameter lists below
+ * mirror material3's two overloads exactly (including the AnnotatedString overload's `inlineContent`
+ * and its non-null `onTextLayout`) so call sites compile unchanged.
  */
 @Composable
 fun Text(
@@ -85,7 +87,8 @@ fun Text(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
-    onTextLayout: ((TextLayoutResult) -> Unit)? = null,
+    inlineContent: Map<String, InlineTextContent> = mapOf(),
+    onTextLayout: (TextLayoutResult) -> Unit = {},
     style: TextStyle = LocalTextStyle.current,
 ) {
     MaterialText(
@@ -104,6 +107,7 @@ fun Text(
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
+        inlineContent = inlineContent,
         onTextLayout = onTextLayout,
         style = style,
     )
