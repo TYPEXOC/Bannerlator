@@ -36,7 +36,7 @@ import com.winlator.star.core.AppOrientation
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Switch
-import androidx.compose.material3.Text
+import com.winlator.star.i18n.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -58,6 +58,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.ColorUtils
 import kotlin.math.roundToInt
+import com.winlator.star.i18n.AppLanguage
 import com.winlator.star.ui.components.ColorPicker
 import com.winlator.star.ui.theme.AppThemeState
 import com.winlator.star.ui.theme.CUSTOM_PRESET_INDEX
@@ -80,6 +81,36 @@ fun AppearanceScreen() {
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
+        // ── Language ─────────────────────────────────────────────────────
+        SectionLabel("Language")
+        Text(
+            text = "Applies to Bannerlator's own interface only — games are unaffected.",
+            color = OnSurfaceVariant,
+            fontSize = 12.sp,
+        )
+        Spacer(Modifier.height(6.dp))
+        var language by remember { mutableStateOf(AppLanguage.get(context)) }
+        val languageOptions = listOf(
+            AppLanguage.SYSTEM to "System default",
+            AppLanguage.ENGLISH to "English",
+            AppLanguage.CHINESE to "简体中文",
+        )
+        SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
+            languageOptions.forEachIndexed { index, (tag, label) ->
+                SegmentedButton(
+                    selected = language == tag,
+                    onClick = {
+                        language = tag
+                        AppLanguage.set(context, tag)
+                    },
+                    shape = SegmentedButtonDefaults.itemShape(index, languageOptions.size),
+                ) { Text(label) }
+            }
+        }
+
+        Spacer(Modifier.height(4.dp))
+        Box(Modifier.fillMaxWidth().height(1.dp).background(Divider))
+
         // ── Interface style ──────────────────────────────────────────────
         SectionLabel("Interface Style")
         Text(

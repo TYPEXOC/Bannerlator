@@ -50,7 +50,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import com.winlator.star.i18n.Text
 import com.winlator.star.ui.XServerDialogState
 import com.winlator.star.ui.XServerDialogState.ControllerToastData
 import com.winlator.star.ui.XServerDialogState.ControllerToastRow

@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import com.winlator.star.i18n.Text
 import com.winlator.star.ui.theme.OnSurfaceVariant
 
 // Shared component-spec card theme used by the Shortcuts (game) list and the Containers

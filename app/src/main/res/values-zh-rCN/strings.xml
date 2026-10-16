@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Simplified Chinese (zh-CN) resources — batch 1.
+
+  Covers the input-controls editor, container settings dialogs, task manager and preset
+  screens. Strings not listed here fall back to the default English values, so this file can
+  grow in batches without blocking anything.
+-->
+<resources>
+    <!-- ── General ─────────────────────────────────────────────────────── -->
+    <string name="remove">移除</string>
+    <string name="add">添加</string>
+    <string name="no_items_to_display">没有可显示的项目</string>
+    <string name="none">无</string>
+    <string name="clear">清除</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="untitled">未命名</string>
+    <string name="name">名称</string>
+    <string name="profile">配置</string>
+    <string name="settings">设置</string>
+    <string name="enable">启用</string>
+    <string name="disable">禁用</string>
+    <string name="disabled">已禁用</string>
+    <string name="force">强制</string>
+    <string name="range">范围</string>
+    <string name="icon">图标</string>
+    <string name="custom_text">自定义文本</string>
+    <string name="width">宽度</string>
+    <string name="height">高度</string>
+    <string name="horizontal">水平</string>
+    <string name="vertical">垂直</string>
+    <string name="orientation">方向</string>
+    <string name="type">类型</string>
+    <string name="shape">形状</string>
+    <string name="scale">缩放</string>
+
+    <!-- ── Containers ──────────────────────────────────────────────────── -->
+    <string name="new_container">新建容器</string>
+    <string name="edit_container">编辑容器</string>
+    <string name="new_container_defaults">新建容器默认值</string>
+    <string name="new_container_defaults_saved">已保存新建容器默认值</string>
+    <string name="new_container_defaults_save_failed">无法保存默认值</string>
+    <string name="reset_to_app_defaults">重置为应用默认值</string>
+    <string name="creating_container">正在创建容器…</string>
+    <string name="removing_container">正在移除容器…</string>
+    <string name="duplicating_container">正在复制容器…</string>
+    <string name="installing_system_files">正在安装系统文件…</string>
+    <string name="updating_system_files">正在更新系统文件…</string>
+    <string name="starting_up">正在启动…</string>
+    <string name="unable_to_install_system_files">无法安装系统文件</string>
+    <string name="container">容器</string>
+    <string name="screen_size">屏幕尺寸</string>
+    <string name="graphics_driver">显卡驱动</string>
+    <string name="audio_driver">音频驱动</string>
+    <string name="dxwrapper">DX 包装器</string>
+    <string name="renderer">渲染器</string>
+    <string name="exec_arguments">启动参数</string>
+    <string name="drives">驱动器</string>
+    <string name="dxvk_version">DXVK 版本</string>
+    <string name="vkd3d_version">VKD3D 版本</string>
+    <string name="wine_version">Wine 版本</string>
+    <string name="box64_preset">Box64 预设</string>
+    <string name="gpu_name">GPU 名称</string>
+    <string name="show_fps">显示 FPS 计数</string>
+    <string name="mouse_warp_override">鼠标瞬移覆盖</string>
+    <string name="press_any_button_on_your_controller">请按手柄上的任意按键</string>
+    <string name="bindings">绑定</string>
+    <string name="processor_affinity">处理器亲和性</string>
+    <string name="processor_affinity_32_bit_apps">处理器亲和性（32 位应用）</string>
+
+    <!-- ── Task manager ────────────────────────────────────────────────── -->
+    <string name="task_manager">任务管理器</string>
+    <string name="memory">内存</string>
+    <string name="new_task">新建任务</string>
+    <string name="processes">进程</string>
+    <string name="do_you_want_to_end_this_process">要结束这个进程吗？</string>
+
+    <!-- ── Presets ─────────────────────────────────────────────────────── -->
+    <string name="preset">预设</string>
+    <string name="stability">稳定性</string>
+    <string name="compatibility">兼容性</string>
+    <string name="intermediate">中等</string>
+    <string name="performance">性能</string>
+    <string name="performance_tso">性能（TSO）</string>
+    <string name="performance_mali">性能（Mali）</string>
+    <string name="extreme">极致</string>
+    <string name="extreme_2">极致-2</string>
+    <string name="you_cannot_remove_this_preset">无法移除此预设</string>
+    <string name="do_you_want_to_remove_this_preset">要移除这个预设吗？</string>
+    <string name="do_you_want_to_duplicate_this_preset">要复制这个预设吗？</string>
+
+    <!-- ── Input controls editor ───────────────────────────────────────── -->
+    <string name="keyboard">键盘</string>
+    <string name="binding_filter_all">全部</string>
+    <string name="binding_filter_keyboard">键盘</string>
+    <string name="binding_filter_mouse">鼠标</string>
+    <string name="binding_filter_gamepad">手柄</string>
+    <string name="no_control_element_selected">未选择任何控件</string>
+    <string name="dead_zone">死区</string>
+    <string name="binding">绑定</string>
+    <string name="binding_up">绑定向上</string>
+    <string name="binding_right">绑定向右</string>
+    <string name="binding_down">绑定向下</string>
+    <string name="binding_left">绑定向左</string>
+    <string name="detection_area">检测区域</string>
+    <string name="area_width">区域宽度</string>
+    <string name="area_height">区域高度</string>
+    <string name="stick_radius">摇杆半径</string>
+    <string name="mouse_sensitivity">鼠标灵敏度</string>
+    <string name="area_appearance">区域外观</string>
+    <string name="independent_area_appearance">使用独立的颜色与不透明度</string>
+    <string name="area_color">区域颜色</string>
+    <string name="area_opacity">区域不透明度</string>
+    <string name="grid_rows">行</string>
+    <string name="grid_cols">列</string>
+    <string name="editing_in_game">游戏内编辑中</string>
+    <string name="save_and_close">保存并关闭</string>
+    <string name="control_type_android_keyboard">Android 键盘</string>
+    <string name="change_control_type">更改控件类型？</string>
+    <string name="change_control_type_warning">更改类型将重置绑定、组合键、文本、图标及类型专属设置。</string>
+    <string name="confirm_change">更改</string>
+    <string name="no_profile_selected">未选择配置</string>
+    <string name="select_control_type">选择控件类型</string>
+    <string name="control_type_button">按钮</string>
+    <string name="control_type_d_pad">十字键</string>
+    <string name="control_type_range_button">行程按钮</string>
+    <string name="control_type_stick">摇杆</string>
+    <string name="control_type_trackpad">触控板</string>
+    <string name="control_type_dynamic_stick">动态摇杆</string>
+    <string name="control_type_mouse_area">鼠标区域</string>
+    <string name="control_type_button_grid">按钮网格</string>
+    <string name="control_type_expandable_button">展开按钮</string>
+    <string name="expandable_button_settings">展开按钮</string>
+    <string name="expandable_layout">布局</string>
+    <string name="expandable_layout_radial">环形</string>
+    <string name="expandable_layout_list">列表</string>
+    <string name="expandable_direction">列表方向</string>
+    <string name="child_button_count">子按钮数量</string>
+    <string name="child_button_label">按钮 %1$d</string>
+    <string name="direction_up">上</string>
+    <string name="direction_right">右</string>
+    <string name="direction_down">下</string>
+    <string name="direction_left">左</string>
+    <string name="control_shape_circle">圆形</string>
+    <string name="control_shape_rectangle">矩形</string>
+    <string name="control_shape_rounded_rectangle">圆角矩形</string>
+    <string name="control_shape_square">正方形</string>
+    <string name="control_range_a_z">A 到 Z</string>
+    <string name="control_range_0_9">0 到 9</string>
+    <string name="control_range_f1_f12">F1 到 F12</string>
+    <string name="control_range_numpad_0_9">小键盘 0 到 9</string>
+    <string name="set_background_image">设置背景图片</string>
+    <string name="select_background_image">选择背景图片</string>
+    <string name="select_icon_image">选择图标图片</string>
+    <string name="clear_background">清除背景</string>
+    <string name="browse_files">浏览文件</string>
+    <string name="pick_via_system">通过系统选择…</string>
+    <string name="background_image_set">已设置背景图片</string>
+    <string name="background_cleared">已清除背景</string>
+    <string name="unable_to_load_image">无法加载图片</string>
+    <string name="opacity_percent">不透明度：%1$d%%</string>
+    <string name="binding_setup_title">绑定 — %1$s</string>
+    <string name="binding_text_value">字符或数字</string>
+    <string name="binding_selector">动作选择器</string>
+    <string name="set_binding">设置</string>
+    <string name="add_to_combo">添加到组合键</string>
+    <string name="combo_bindings">组合键绑定</string>
+    <string name="mouse_binding_priority">优先鼠标绑定</string>
+    <string name="mouse_binding_priority_description">当此控件可见时，禁用匹配的触屏点击。</string>
+    <string name="fill_qwerty">填充：QWERTY</string>
+    <string name="fill_function_keys">填充：F1–F12</string>
+    <string name="fill_numpad">填充：小键盘</string>
+    <string name="hold_key">按住键（激活时保持按下）</string>
+    <string name="button_grid">按钮网格</string>
+    <string name="cell_shape">单元格形状</string>
+    <string name="grid_spacing">按钮间距</string>
+    <string name="grid_multitouch">多点触控</string>
+    <string name="custom_icons">自定义图标</string>
+    <string name="tint_custom_icon">用强调色为自定义图标着色</string>
+    <string name="use_custom_icon_as_button">将自定义图标用作按钮</string>
+    <string name="icon_content_description">图标 %1$d</string>
+    <string name="long_press_custom_icon_to_delete">长按未使用的自定义图标即可删除。</string>
+    <string name="delete_custom_icon">删除自定义图标</string>
+    <string name="delete_custom_icon_confirmation">自定义图标在所有控制配置间共享。删除这个未使用的图标？</string>
+    <string name="custom_icon_not_deleted">未删除自定义图标</string>
+    <string name="unable_to_check_custom_icon_usage">无法确认此图标是否正在使用。未做任何更改。</string>
+    <string name="unable_to_delete_custom_icon">无法删除该图标。可能已在其他地方被使用或删除。</string>
+    <string name="do_you_want_to_remove_this_profile">要移除这个配置吗？</string>
+    <string name="do_you_want_to_duplicate_this_profile">要复制这个配置吗？</string>
+    <string name="do_you_want_to_remove_this_controller">要移除这个控制器吗？</string>
+    <string name="toggle_switch">切换开关</string>
+    <string name="input_controls_editor_swipeable">可滑动</string>
+    <string name="swipe_tab">滑动</string>
+    <string name="swipe_buttons">按钮</string>
+    <string name="swipe_dpad">十字键</string>
+    <string name="swipe_sticks">摇杆</string>
+    <string name="profile_exported_to">配置已导出到</string>
+    <string name="unable_to_import_profile">无法导入配置</string>
+    <string name="import_control_profile">导入 ICP / ICpx</string>
+    <string name="export_control_profile_icpx">导出 ICpx</string>
+    <string name="export_control_profile_icp_legacy">导出旧版 ICP</string>
+    <string name="select_control_profile">选择 ICP 或 ICpx 配置</string>
+    <string name="unable_to_load_profile_list">无法加载配置列表</string>
+    <string name="open_file">打开文件</string>
+    <string name="download_file">下载文件</string>
+    <string name="unable_to_download_file">无法下载文件</string>
+
+    <!-- ── Mali PanVK ──────────────────────────────────────────────────── -->
+    <string name="mali_panvk_section">Mali（PanVK）</string>
+    <string name="mali_panvk_mode">Mali（PanVK）模式</string>
+    <string name="mali_panvk_advanced">高级 PanVK 设置</string>
+    <string name="mali_panvk_default">自动 / 默认</string>
+</resources>

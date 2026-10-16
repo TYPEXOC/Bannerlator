@@ -25,6 +25,16 @@ class BannerlatorApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        // In-app language (Settings › Appearance): load the saved choice and hand it to AppCompat
+        // BEFORE any Activity is created, so the very first screen already renders in it. Cheap
+        // and idempotent; failures here must never block startup.
+        try {
+            com.winlator.star.i18n.AppLanguage.init(this)
+            com.winlator.star.i18n.AppLanguage.applyAtStartup(this)
+        } catch (t: Throwable) {
+            Log.w("BannerlatorApp", "language init failed", t)
+        }
+
         // Crash reporting first and on its own: it must be installed before anything below can throw,
         // and it must not be inside the try/catch that swallows perf-init failures. It chains to the
         // handler already in place, so the perf safety nets installed just after still run.
