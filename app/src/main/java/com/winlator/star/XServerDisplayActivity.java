@@ -2818,7 +2818,8 @@ public class XServerDisplayActivity extends AppCompatActivity {
             Log.w("XServerDisplayActivity", "wayland: layer " + wineVersion + " (" + wineInfo.path
                     + ") lacks winewayland.so and/or lib/libvulkan_freedreno_wayland.so; launching on X11");
             waylandMode = false;
-            showToast(this, "Wayland needs the Wayland Proton layer (11.0-2.1 arm64ec); launching on X11.");
+            showToast(this, com.winlator.star.i18n.I18n.INSTANCE.t(
+                    "Wayland needs the Wayland Proton layer (11.0-2.1 arm64ec); launching on X11."));
         }
 
         imageFs.setWinePath(wineInfo.path);
