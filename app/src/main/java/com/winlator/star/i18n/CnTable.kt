@@ -308,7 +308,6 @@ internal val CN_TABLE: Map<String, String> = mapOf(
     "Community configs" to "社区配置",
     "Remove cover art" to "移除封面图",
     "Deselect" to "取消选择",
-    "Select" to "选择",
     "Play" to "开始游戏",
     "Not played yet" to "尚未玩过",
     "Change" to "更改",
