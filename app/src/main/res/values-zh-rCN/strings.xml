@@ -661,4 +661,25 @@
     <string name="help_linux_display_driver"><b>显示驱动（Android 侧）</b><br /><br /> Linux 会话涉及两个图形驱动，这是其中之一。它是应用加载的 Android 驱动，负责把会话完成的帧放上屏幕。它同时影响 Steam 客户端和其游戏，因为你看到的一切都经过它。设为“系统”会黑屏。客户端与其游戏实际用什么渲染是 Linux 运行时内的另一个驱动，不在此处选择。</string>
     <string name="help_linux_audio_driver"><b>音频驱动</b><br /><br /> 声音如何离开会话到达 Android。在这条路径上只有 <b>PulseAudio</b> 能承载声音，且它为 Steam 客户端和其启动的游戏<b>两者</b>承载。其他取值会让整个会话静音，因此请保持 PulseAudio。</string>
     <string name="help_linux_microphone"><b>麦克风</b><br /><br /> 允许游戏使用麦克风进行语音聊天。它面向<b>客户端启动的游戏</b>，而非 Steam 客户端。目前在 Linux 会话中不起作用：该开关为 Windows 侧接线，负责承载声音的 Linux 侧尚未就位。</string>
+
+    <!-- ── Batch 4: preset editor help (resolved by name at runtime) ────────── -->
+    <string name="box64_preset_help__stability"><b>稳定性</b> — 最大程度的正确性。完整的 CPU 标志模拟、不启用快速数学、完整 80 位 x87 精度、不做块合并。最慢的选项：当游戏在其他所有预设下都崩溃时用它。</string>
+    <string name="box64_preset_help__compatibility"><b>兼容性</b> — 与稳定性相同的保守数学设置，但对转换器稍微放宽。游戏在中等档异常时的好备选。</string>
+    <string name="box64_preset_help__intermediate"><b>中等</b> — 均衡的默认档。更快的 NaN 处理与轻度块合并，同时保留安全的 CPU 标志与完整 x87 精度。从这里开始。</string>
+    <string name="box64_preset_help__performance"><b>性能</b> — 明显更快：放宽标志、快速舍入、64 位 x87 与激进的块合并。<br /><br />对舍入敏感的游戏有小概率出现数学或精度瑕疵。</string>
+    <string name="box64_preset_help__performance_mali"><b>性能（Mali）</b> — 为 Mali GPU 重新调校的性能档：关闭 CPU 标志模拟但保留精确舍入，更适合 Mali 驱动。对 Adreno 无收益。</string>
+    <string name="box64_preset_help__extreme"><b>极致</b> — 在性能档基础上加深指令预读、调用/返回优化并禁用 AVX。更快。<br /><br />影响面更大：对时序或数学敏感的游戏比性能档更容易出问题。</string>
+    <string name="box64_preset_help__extreme_2"><b>极致-2</b> — 社区 32 变量调校。在极致的基础上更进一步：更快的舍入、双倍预读、原生 CPU 标志，并向游戏暴露 AES、SSE4.2、SHA 与 PCLMULQDQ 指令集。<br /><br /><b>风险：</b>它还会削弱内存屏障，可能破坏多线程状态。表现为随机不稳定而非干净崩溃 — 游戏变得飘忽时就退回极致。</string>
+    <string name="box64_preset_help__unity"><b>Unity</b> — 为 Unity 游戏调校的性能档，采用大多数 Unity 游戏保持稳定所需的更强内存顺序。</string>
+    <string name="box64_preset_help__unity_mono_bleeding_edge"><b>Unity Mono 前沿版</b> — 面向前沿 Mono 运行时上的新版 Unity 构建。禁用会干扰其即时编译器的块合并。</string>
+    <string name="box64_preset_help__denuvo"><b>Denuvo</b> — 针对 Denuvo 保护游戏的保守设置，这类游戏会检测并讨厌激进的转换。设计上更慢；仅在需要的游戏上使用。</string>
+    <string name="fexcore_preset_help__stability"><b>稳定性</b> — 启用全部内存顺序模拟并保留完整 x87 精度。最慢也最正确；其他都跑不起来时用它。</string>
+    <string name="fexcore_preset_help__compatibility"><b>兼容性</b> — 完整内存顺序模拟，与稳定性相同。以速度换取广泛正确性。</string>
+    <string name="fexcore_preset_help__intermediate"><b>中等</b> — 均衡的默认档。保留主顺序与半屏障顺序，去掉较重的向量与 memcpy 顺序，并允许降低 x87 精度。</string>
+    <string name="fexcore_preset_help__performance"><b>性能</b> — 关闭全部内存顺序模拟。明显更快。<br /><br /><b>风险：</b>依赖严格存储顺序的游戏可能崩溃、卡死或损坏存档。遇到这种情况请用性能（TSO）。</string>
+    <string name="fexcore_preset_help__performance_tso"><b>性能（TSO）</b> — 性能档重新开启主存储顺序模拟，同时保持较重的向量、半屏障与 memcpy 顺序关闭。综合最佳的折中，也是最安全的快速档。</string>
+    <string name="fexcore_preset_help__extreme"><b>极致-wn</b> — 来自 WinNative。在性能档上外加五个 JIT 与缓存开关：关闭自修改代码检查、关闭 L2 块缓存、L1 缓存动态调大小。<br /><br /><b>风险：</b>关闭代码检查后，任何运行时写自身代码的东西 — Java 或 .NET 运行时、部分启动器与 DRM — 都可能异常。内存顺序也关闭，这是最激进的一档。</string>
+    <string name="fexcore_preset_help__extreme_tso"><b>极致（TSO）-wn</b> — 与极致-wn 相同的调校，但保留存储顺序，因此适配的游戏多得多。想要比性能（TSO）更快，先试这个。<br /><br /><b>风险：</b>自修改代码检查关闭，可能弄坏 Java 或 .NET 运行时、部分启动器与 DRM。出问题就退回极致-gn。</string>
+    <string name="fexcore_preset_help__extreme_gn"><b>极致-gn</b> — 来自 GameNative，比名字温和得多。性能档仅外加计时器缩放与易失元数据提示，代码检查与块缓存保持默认。<br /><br />更安全的极致：当游戏跑不动两个 WinNative 档时试它。</string>
+    <string name="fexcore_preset_help__denuvo"><b>Denuvo</b> — 针对 Denuvo 保护的游戏。为速度关闭内存顺序，但保留完整的自修改代码检查与隐藏的 hypervisor 位 — 这两项都是 Denuvo 启动所需的。</string>
 </resources>

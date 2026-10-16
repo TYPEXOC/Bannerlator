@@ -134,7 +134,10 @@ public abstract class AppUtils {
         return showToast(context, context.getString(textResId));
     }
 
-    public static Toast showToast(final Context context, final String text) {
+    public static Toast showToast(final Context context, final String rawText) {
+        // Follow the in-app language: toasts are plain strings, so route them through the runtime
+        // translator (exact-match table; strings it doesn't know pass through unchanged).
+        final String text = com.winlator.star.i18n.I18n.INSTANCE.t(rawText);
         if (!isUiThread()) {
             if (context instanceof Activity) {
                 ((Activity)context).runOnUiThread(() -> showToast(context, text));

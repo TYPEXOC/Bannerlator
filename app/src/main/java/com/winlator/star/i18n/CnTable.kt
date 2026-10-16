@@ -4984,4 +4984,22 @@ internal val CN_TABLE: Map<String, String> = mapOf(
         "此屏幕不支持 HDR（未报告任何 HDR 类型），因此 HDR 输出保持关闭。",
     "Applies from the next launch: whether the game is offered HDR is decided when it starts (DXVK_HDR and the display's HDR offer). Games that support HDR then show it on this screen: their frames go to the display in 10-bit with the HDR10 (BT.2020 PQ) tag. Switch HDR on in the game's own settings too. In game, the drawer's Graphics tab has a live \"HDR output\" switch between real HDR and the same picture tone-mapped to SDR. Screen effects, windows over the game and windowed games stay HDR (the whole picture is composed in HDR); with frame generation it depends on the screen offering an HDR swapchain, otherwise the picture is tone-mapped to SDR. Windows is told this screen's peak brightness as Android reports it; Android gives no live brightness in nits, so the session log records the live HDR/SDR headroom instead. Not the same as the \"HDR\" screen effect." to
         "下次启动生效：是否向游戏提供 HDR 在启动时决定（DXVK_HDR 与屏幕的 HDR 提供情况）。支持 HDR 的游戏随后会在此屏幕上显示 HDR：其画面以 10 位并带 HDR10（BT.2020 PQ）标签发送到屏幕。也请在游戏自身设置中开启 HDR。游戏中，抽屉的“图形”标签页有实时的“HDR 输出”开关，可在真实 HDR 与色调映射到 SDR 的同一画面之间切换。屏幕效果、游戏上的窗口以及窗口化游戏保持 HDR（整个画面以 HDR 合成）；开启帧生成时则取决于屏幕是否提供 HDR 交换链，否则画面会被色调映射到 SDR。Windows 得到的屏幕峰值亮度来自 Android 的报告；Android 不提供实时的尼特亮度，因此会话日志改为记录实时的 HDR/SDR 余量。与“HDR”屏幕效果不是一回事。",
+
+    // ── Toasts (Java AppUtils/StarLaunchBridge now route through I18n) ──────
+    "Failed to export preset" to "导出预设失败",
+    "Data restored successfully." to "数据恢复成功。",
+    "Data restore failed." to "数据恢复失败。",
+    "Native Rendering isn't available on the OpenGL renderer yet — use the Vulkan renderer" to
+        "原生渲染器暂不支持 OpenGL 渲染器 — 请改用 Vulkan 渲染器",
+    "Native Rendering is always on under the SurfaceFlinger renderer" to
+        "SurfaceFlinger 渲染器下原生渲染始终开启",
+    "Native Rendering is best with a single fullscreen window — extra windows may be hidden" to
+        "原生渲染最适合单个全屏窗口 — 额外窗口可能被隐藏",
+    "Frame-gen training capture is recording to Download/win-fg (lowers FPS)" to
+        "帧生成训练数据正在录制到 Download/win-fg（会降低帧率）",
+    "Native Rendering off — needed for post-processing" to "原生渲染已关闭 — 后处理需要如此",
+    "Wrapper + compat + bcn: GameNative DX12 engine needs a Valhall Mali (r32p1+)" to
+        "包装器 + 兼容 + bcn：GameNative DX12 引擎需要 Valhall Mali（r32p1+）",
+    "Wrapper + compat + bcn: the DX12 compat layer needs a Valhall Mali (r32p1+)" to
+        "包装器 + 兼容 + bcn：DX12 兼容层需要 Valhall Mali（r32p1+）",
 )

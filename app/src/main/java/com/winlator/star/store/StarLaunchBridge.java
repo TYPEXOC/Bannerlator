@@ -494,6 +494,8 @@ public final class StarLaunchBridge {
      * on a black pill. An explicit white-on-dark-grey view stays readable.
      */
     private static void showToast(Context ctx, String message) {
+        // Follow the in-app language (exact-match table; unknown strings pass through).
+        message = com.winlator.star.i18n.I18n.INSTANCE.t(message);
         float density = ctx.getResources().getDisplayMetrics().density;
 
         TextView tv = new TextView(ctx);
